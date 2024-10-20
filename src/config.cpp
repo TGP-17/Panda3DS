@@ -64,7 +64,7 @@ void EmulatorConfig::load() {
 			}
 
 			shaderJitEnabled = toml::find_or<toml::boolean>(gpu, "EnableShaderJIT", shaderJitDefault);
-			vsyncEnabled = toml::find_or<toml::boolean>(gpu, "EnableVSync", true);
+			vsyncEnabled = toml::find_or<toml::boolean>(gpu, "EnableVSync", false);
 			useUbershaders = toml::find_or<toml::boolean>(gpu, "UseUbershaders", ubershaderDefault);
 			accurateShaderMul = toml::find_or<toml::boolean>(gpu, "AccurateShaderMultiplication", false);
 			accelerateShaders = toml::find_or<toml::boolean>(gpu, "AccelerateShaders", accelerateShadersDefault);
@@ -82,7 +82,7 @@ void EmulatorConfig::load() {
 
 			auto dspCoreName = toml::find_or<std::string>(audio, "DSPEmulation", "HLE");
 			dspType = Audio::DSPCore::typeFromString(dspCoreName);
-			audioEnabled = toml::find_or<toml::boolean>(audio, "EnableAudio", false);
+			audioEnabled = toml::find_or<toml::boolean>(audio, "EnableAudio", true);
 		}
 	}
 
